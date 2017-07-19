@@ -1,5 +1,5 @@
 {
-  "name" : "philetaylor/climenuBundle",
+  "name" : "philetaylor/climenubundle",
   "description" : "A bundle to expose a cli menu",
   "type" : "symfony-bundle",
   "authors" : [{

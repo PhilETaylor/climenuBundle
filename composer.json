@@ -13,6 +13,7 @@
     "GPL"
   ],
   "require" : {
+    "php-school/cli-menu":"dev-master"
   },
   "autoload" : {
     "psr-0" : {

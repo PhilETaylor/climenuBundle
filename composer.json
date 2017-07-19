@@ -24,7 +24,7 @@
   "repositories" : [{
   }],
   "extra" : {
-    "branch-alias" : {
+    "branch-alias" :{
     }
   }
 }

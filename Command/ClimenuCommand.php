@@ -29,12 +29,16 @@ class ClimenuCommand extends Command
 			->setTitle('Symfony Basic CLI Menu (Env = ' . ClimenuCommand::$env . ')')
 			->addItem('Symfony Clear Cache With No Warmup', function (CliMenu $menu) {
 				ClimenuCommand::$output->writeln(passthru(sprintf('php bin/console -env=%s cache:clear --no-warmup', ClimenuCommand::$env)));
-				ClimenuCommand::$output->writeln('DONE!!!');
+				$flash = $menu->flash("!!!DONE!!!");
+				$flash->getStyle()->setBg('green');
+				$flash->display();
 			})
 			->addItem('Doctrine Clear Cache & Schema Force Update', function (CliMenu $menu) {
 				echo passthru(sprintf('php bin/console -env=%s doctrine:cache:clear-metadata', ClimenuCommand::$env));
 				echo passthru(sprintf('php bin/console -env=%s doctrine:schema:update --force', ClimenuCommand::$env));
-				ClimenuCommand::$output->writeln('DONE!!!');
+				$flash = $menu->flash("!!!DONE!!!");
+				$flash->getStyle()->setBg('green');
+				$flash->display();
 			})
 			->addLineBreak('-')
 			->build();

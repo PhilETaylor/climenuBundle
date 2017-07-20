@@ -41,6 +41,25 @@ class ClimenuCommand extends Command
 				$flash->display();
 			})
 			->addLineBreak('-')
+			->addItem('Stop Server', function (CliMenu $menu) {
+				echo passthru(sprintf('php bin/console -env=%s server:stop', ClimenuCommand::$env));
+				$flash = $menu->flash("!!!DONE!!!");
+				$flash->getStyle()->setBg('green');
+				$flash->display();
+			})
+			->addItem('Start Server (standard)', function (CliMenu $menu) {
+				echo passthru(sprintf('php bin/console -env=%s server:start', ClimenuCommand::$env));
+				$flash = $menu->flash("!!!DONE!!!");
+				$flash->getStyle()->setBg('green');
+				$flash->display();
+			})
+			->addItem('Start Server with public_html root folder', function (CliMenu $menu) {
+				echo passthru(sprintf('php bin/console -env=%s server:start --docroot=./public_html', ClimenuCommand::$env));
+				$flash = $menu->flash("!!!DONE!!!");
+				$flash->getStyle()->setBg('green');
+				$flash->display();
+			})
+			->addLineBreak('-')
 			->build();
 
 		$menu->open();

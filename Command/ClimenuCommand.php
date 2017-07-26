@@ -29,6 +29,7 @@ class ClimenuCommand extends Command
 			->setTitle('Symfony Basic CLI Menu (Env = ' . ClimenuCommand::$env . ')')
 			->addItem('Symfony Clear Cache With No Warmup', function (CliMenu $menu) {
 				ClimenuCommand::$output->writeln(passthru(sprintf('php bin/console -env=%s cache:clear --no-warmup', ClimenuCommand::$env)));
+				ClimenuCommand::$output->writeln(passthru(sprintf('php bin/console -env=%s assetic:dump --no-warmup', ClimenuCommand::$env)));
 				$flash = $menu->flash("!!!DONE!!!");
 				$flash->getStyle()->setBg('green');
 				$flash->display();
